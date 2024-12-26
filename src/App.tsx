@@ -2,9 +2,13 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import useGetQuote from "./hooks/useGetQuote";
 
 function App() {
   const [count, setCount] = useState(0);
+  const { data, isLoading, error } = useGetQuote("https://api.api-ninjas.com/v1/quotes");
+
+  console.log(data?.quote)
 
   return (
     <>
@@ -19,7 +23,7 @@ function App() {
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 2)}>
-          The count is {count}
+          The count is {!isLoading? data?.author : ""}
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
