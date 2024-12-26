@@ -7,8 +7,9 @@ import useGetQuote from "./hooks/useGetQuote";
 function App() {
   const [count, setCount] = useState(0);
   const { data, isLoading, error } = useGetQuote("https://api.api-ninjas.com/v1/quotes");
-
-  console.log(data?.quote)
+  
+  const catchVariable = isLoading ? data : error;
+  console.log(catchVariable)
 
   return (
     <>
@@ -23,7 +24,7 @@ function App() {
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 2)}>
-          The count is {!isLoading? data?.author : ""}
+          The count is {count}
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
