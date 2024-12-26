@@ -11,9 +11,9 @@ function useGetQuote(url: string) {
         category?: string;
     };
     
-    type ApiResponse = {
-        results?: Quote[]
-    }
+    // type ApiResponse = {
+    //     results?: Quote[]
+    // }
 
     useEffect(() => {
         if (!url) return;
