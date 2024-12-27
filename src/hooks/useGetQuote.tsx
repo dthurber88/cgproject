@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 function useGetQuote(url: string) {
     const [data, setData] = useState<Quote | undefined>(undefined);
     const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState("");
 
     type Quote = {
         author?: string;
@@ -11,16 +11,16 @@ function useGetQuote(url: string) {
         category?: string;
     };
 
-    // type ApiResponse = {
-    //     results?: Quote[]
-    // }
+    type ApiResponse = {
+        quote?: Quote[];
+    };
 
     useEffect(() => {
         if (!url) return;
 
         const getQuote = async () => {
             setIsLoading(true);
-            setError(null);
+            setError("");
 
             try {
                 // const response = await fetch(url, {
@@ -31,15 +31,21 @@ function useGetQuote(url: string) {
                 // }
 
                 // const result = await response.json();
-                const result: Quote = {
-                    author: "Steve Jobs",
-                    category: "motivational",
-                    quote: "Life can be much broader once you discover one simple fact: Everything around you that you call life was made up by people that were no smarter than you and you can change it. Once you learn that, you'll never be the same again.",
+
+                const result: ApiResponse = {
+                    quote: [
+                        {
+                            author: "Steve Jobs",
+                            category: "motivational",
+                            quote: "Life can be much broader once you discover one simple fact: Everything around you that you call life was made up by people that were no smarter than you and you can change it. Once you learn that, you'll never be the same again.",
+                        },
+                    ],
                 };
-                setData(result);
-            } catch (err: any) {
-                setError(err.message);
-                console.log(err.message);
+                setData(result.quote ? result.quote[0] : undefined);
+            } catch (err: unknown) {
+                err instanceof Error
+                    ? setError(err.message)
+                    : setError("An unknown error occurred");
             } finally {
                 setIsLoading(false);
             }
