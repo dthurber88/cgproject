@@ -56,7 +56,7 @@ function App() {
 
             setGameQuote(newQuoteArray);
         }
-    }, []);
+    }, [data]);
 
     function revealLetter(letter?: string) {
         const userInput = prompt("Enter a letter to reveal the quote");
