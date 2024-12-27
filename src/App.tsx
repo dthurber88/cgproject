@@ -1,11 +1,11 @@
 import "./App.css";
-import GuessBox from "./components/guess-box";
+// import GuessBox from "./components/guess-box";
 import useGetQuote from "./hooks/useGetQuote";
 import { useEffect, useState } from "react";
 
 function App() {
-    const [guessBoxActive, setGuessBoxActive] = useState(false);
-    const [guessBoxPosition, setGuessBoxPosition] = useState({ x: 0, y: 0 });
+    // const [guessBoxActive, setGuessBoxActive] = useState(false);
+    // const [guessBoxPosition, setGuessBoxPosition] = useState({ x: 0, y: 0 });
     const [gameQuote, setGameQuote] = useState<
         { letter: string; randomChar: string }[]
     >([]);
