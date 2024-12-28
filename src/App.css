@@ -112,6 +112,32 @@ body {
     border: none;
 }
 
+.congrats-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.congrats-header {
+    font-size: 36px;
+    font-weight: 300;
+    margin-bottom: 12px;
+}
+
+.congrats-subtext {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 12px;
+}
+
+.revealed-quote {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 12px;
+}
+
 .blockquote-footer,
 .submit-button,
 .by-footer {

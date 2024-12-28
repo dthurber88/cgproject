@@ -40,6 +40,7 @@ function useGetQuote(url: string) {
                             author: "Steve Jobs",
                             category: "motivational",
                             quote: "Life can be much broader once you discover one simple fact: Everything around you that you call life was made up by people that were no smarter than you and you can change it. Once you learn that, you'll never be the same again.",
+                            //quote: "life",
                         },
                     ],
                 };

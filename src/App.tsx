@@ -166,52 +166,79 @@ function App() {
                             <p>Error: {error}</p>
                         ) : (
                             <div className="blockquote">
-                                <div className="quote-container" key={`quote`}>
-                                    {gameQuote.map((item, index) => (
-                                        <>
-                                            <div className="letter-container">
-                                                <div className="guess">
-                                                    <div className="guess-box">
-                                                        <input
-                                                            style={{
-                                                                textTransform:
-                                                                    "uppercase",
-                                                            }}
-                                                            type="text"
-                                                            className="guess-input"
-                                                            onChange={(e) => {
-                                                                updateGuessedArray(
-                                                                    e.target
-                                                                        .value,
-                                                                    index
-                                                                );
-                                                                let newGuessedValues =
-                                                                    [
-                                                                        ...guessedValues,
-                                                                    ];
-                                                                newGuessedValues[
-                                                                    index
-                                                                ] =
-                                                                    e.target.value;
-                                                                return newGuessedValues;
-                                                            }}
-                                                            value={
-                                                                guessedValues[
-                                                                    index
-                                                                ]
-                                                            }
-                                                            maxLength={1}
-                                                        />
+                                {!complete && (
+                                    <>
+                                        <div
+                                            className="quote-container"
+                                            key={`quote`}
+                                        >
+                                            {gameQuote.map((item, index) => (
+                                                <>
+                                                    <div className="letter-container">
+                                                        <div className="guess">
+                                                            <div className="guess-box">
+                                                                <input
+                                                                    style={{
+                                                                        textTransform:
+                                                                            "uppercase",
+                                                                    }}
+                                                                    type="text"
+                                                                    className="guess-input"
+                                                                    onChange={(
+                                                                        e
+                                                                    ) => {
+                                                                        updateGuessedArray(
+                                                                            e
+                                                                                .target
+                                                                                .value,
+                                                                            index
+                                                                        );
+                                                                        let newGuessedValues =
+                                                                            [
+                                                                                ...guessedValues,
+                                                                            ];
+                                                                        newGuessedValues[
+                                                                            index
+                                                                        ] =
+                                                                            e.target.value;
+                                                                        return newGuessedValues;
+                                                                    }}
+                                                                    value={
+                                                                        guessedValues[
+                                                                            index
+                                                                        ]
+                                                                    }
+                                                                    maxLength={
+                                                                        1
+                                                                    }
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div className="zod-signs">
+                                                            {item.randomChar}
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div className="zod-signs">
-                                                    {item.randomChar}
-                                                </div>
+                                                </>
+                                            ))}
+                                        </div>
+                                    </>
+                                )}
+                                {complete && (
+                                    <div>
+                                        <div className="congrats-container">
+                                            <div className="congrats-header">
+                                                CONGRATULATIONS!
                                             </div>
-                                        </>
-                                    ))}
-                                </div>
-
+                                            <div className="congrats-subtext">
+                                                You have solved today's Zodiac
+                                                Cipher!
+                                            </div>
+                                        </div>
+                                        <div className="revealed-quote">
+                                            {data?.quote}
+                                        </div>
+                                    </div>
+                                )}
                                 <footer className="blockquote-footer">
                                     <cite>
                                         {complete
@@ -219,11 +246,13 @@ function App() {
                                             : "- Solve to Reveal Author"}
                                     </cite>
                                 </footer>
-                                <div className="submit-button">
-                                    <button onClick={() => submitGuess()}>
-                                        Check Solution
-                                    </button>
-                                </div>
+                                {!complete && (
+                                    <div className="submit-button">
+                                        <button onClick={() => submitGuess()}>
+                                            Check Solution
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                         )}
                     </div>
