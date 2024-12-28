@@ -23,6 +23,7 @@ function useGetQuote(url: string) {
             setError("");
 
             try {
+                //actual api call
                 // const response = await fetch(url, {
                 //     headers: { 'X-Api-Key': import.meta.env.VITE_API_KEY}
                 // })
@@ -32,6 +33,7 @@ function useGetQuote(url: string) {
 
                 // const result = await response.json();
 
+                //simulated api call
                 const result: ApiResponse = {
                     quote: [
                         {
@@ -58,60 +60,3 @@ function useGetQuote(url: string) {
 }
 
 export default useGetQuote;
-
-// if (letter?.toLowerCase() === guessBoxValue?.toLowerCase()) {
-//     console.log("Correct letter", guessBoxValue);
-//     let newQuoteArray = [...gameQuote];
-//     newQuoteArray[index].letter = letter;
-//     setGameQuote(newQuoteArray);
-// }
-
-// if (userInput?.toLowerCase() !== letter?.toLowerCase()) {
-//     alert("Incorrect letter");
-// } else {
-//     let newQuoteArray = [...gameQuote];
-//     for (let i = 0; i < gameQuote.length; i++) {
-//         if (
-//             userInput?.toLowerCase() ===
-//                 data?.quote?.[i].toLowerCase() &&
-//             newQuoteArray[i].letter === "_"
-//         ) {
-//             newQuoteArray[i].letter = data?.quote?.[i];
-//         }
-//     }
-//     setGameQuote(newQuoteArray);
-// }
-
-// let newQuoteArray = filteredQuoteArray.map((letter) => {
-//     if (
-//         letter !== " " &&
-//         letter !== "." &&
-//         letter !== "'" &&
-//         letter !== "," &&
-//         letter !== ":" &&
-//         letter !== ";" &&
-//         letter !== "-" &&
-//         letter !== "?" &&
-//         letter !== "!"
-//     ) {
-//         if (!letterToRandomChar[letter.toLowerCase()]) {
-//             let randomChar;
-//             do {
-//                 randomChar = characters.charAt(
-//                     Math.floor(Math.random() * characters.length)
-//                 );
-//             } while (usedChars.has(randomChar));
-//             usedChars.add(randomChar);
-//             letterToRandomChar[letter.toLowerCase()] = randomChar;
-//         }
-//         return {
-//             letter: "_",
-//             randomChar: letterToRandomChar[letter.toLowerCase()],
-//         };
-//     } else {
-//         return {
-//             letter: letter,
-//             randomChar: "",
-//         };
-//     }
-// });

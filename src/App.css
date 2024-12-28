@@ -1,8 +1,37 @@
+body {
+    background-color: #3b3b3b;
+    width: 100vw;
+    height: 100vh;
+}
+
+.header {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    height: 75px;
+    background-color: #050505;
+}
+
+.header-text {
+    cursor: pointer;
+    padding: 0 12px;
+}
+
+.header-text:hover {
+    border-bottom: 2px solid #c70000;
+}
+
 #root {
-    max-width: 1280px;
     margin: 0 auto;
-    padding: 2rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .card {
@@ -10,11 +39,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 65%;
 }
+
 .blockquote {
     display: flex;
     flex-direction: column;
-    width: 43%;
+    width: 50%;
 }
 
 .quote-container {
@@ -50,4 +81,71 @@
 
 .zod-signs {
     color: rgb(255, 0, 0);
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+}
+
+.guess-box {
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.guess-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 25px;
+    width: 25px;
+    overflow: wrap;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.guess-input:hover {
+    background-color: #f0f0f0;
+}
+
+.guess-input:focus {
+    outline: none;
+    border: none;
+}
+
+.blockquote-footer,
+.submit-button,
+.by-footer {
+    margin-top: 36px;
+}
+
+@media (max-width: 1600px) {
+    .card {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100% !important;
+    }
+    .blockquote {
+        display: flex;
+        flex-direction: column;
+        width: 75% !important;
+    }
+}
+
+@media (max-width: 1280px) {
+    .card {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100% !important;
+    }
+    .blockquote {
+        display: flex;
+        flex-direction: column;
+        width: 75% !important;
+    }
 }
