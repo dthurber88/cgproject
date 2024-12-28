@@ -2,7 +2,7 @@ import { GuessBoxProps } from "./guess-box.model";
 import { StyledGuessBox } from "./guess-box.style";
 import { useState } from "react";
 
-const GuessBox = (props: GuessBoxProps) => {
+const GuessBox = (_props: GuessBoxProps) => {
     const [value, setValue] = useState("");
 
     return (
