@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { GuessBoxProps } from "./guess-box.model";
 import { StyledGuessBox } from "./guess-box.style";
+import { useState } from "react";
 
-const GuessBox = () => {
+const GuessBox = (_props: GuessBoxProps) => {
     const [value, setValue] = useState("");
 
     return (
@@ -10,9 +11,9 @@ const GuessBox = () => {
                 <input
                     type="text"
                     className="guess-input"
-                    placeholder="Guess"
                     onChange={(e) => setValue(e.target.value)}
-                    value={value}
+                    value={value.toUpperCase()}
+                    maxLength={1}
                 />
             </div>
         </StyledGuessBox>

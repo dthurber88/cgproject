@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
 export const StyledGuessBox = styled.div`
-    position: absolute;
-
     .guess-box {
-        height: 50px;
-        width: 50px;
-        background-color: rgb(0, 0, 0);
+        height: 25px;
+        width: 25px;
+        cursor: pointer;
     }
 
     .guess-input {
@@ -14,8 +12,19 @@ export const StyledGuessBox = styled.div`
         justify-content: center;
         align-items: center;
         text-align: center;
-        height: 50px;
-        width: 50px;
+        height: 25px;
+        width: 25px;
         overflow: wrap;
+        border: none;
+        cursor: pointer;
+    }
+
+    .guess-input:hover {
+        background-color: #f0f0f0;
+    }
+
+    .guess-input:focus {
+        outline: none;
+        border: none;
     }
 `;
